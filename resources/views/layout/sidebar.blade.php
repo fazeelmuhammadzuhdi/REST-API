@@ -25,7 +25,7 @@
             </ul>
         </li>
         <li class="active"><a class="nav-link" href="{{ route('posts.index') }}"><i class="far fa-square"></i>
-                <span>Blank Page</span></a></li>
+                <span>Post</span></a></li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Bootstrap</span></a>
@@ -162,7 +162,7 @@
                 <li><a href="utilities-subscribe.html">Subscribe</a></li>
             </ul>
         </li>
-        <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i>
+        <li><a class="nav-link" href="#"><i class="fas fa-pencil-ruler"></i>
                 <span>Credits</span></a></li>
     </ul>
 
