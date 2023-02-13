@@ -45,7 +45,7 @@
 
         // fetch detail post with ajax
         $.ajax({
-            url: `/posts/${post_id}`,
+            url: `/admin/posts/${post_id}`,
             type: "GET",
             cache: false,
             success: function(response) {
@@ -74,7 +74,7 @@
         //ajax
         $.ajax({
 
-            url: `/posts/${post_id}`,
+            url: `/admin/posts/${post_id}`,
             type: "PUT",
             cache: false,
             data: {

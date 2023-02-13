@@ -1,8 +1,14 @@
-/**
- *
- * You can write your JS code here, DO NOT touch the default style file
- * because it will make it harder for you to update.
- *
- */
+$("#photo").change(function () {
+    previewImage(this);
+});
 
-"use strict";
+function previewImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $("#img-view").attr("src", e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}

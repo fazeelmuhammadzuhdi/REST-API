@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -32,4 +33,5 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.au
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('posts', PostController::class);
+    Route::resource('karyawan', KaryawanController::class);
 });

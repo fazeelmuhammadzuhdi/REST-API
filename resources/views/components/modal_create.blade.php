@@ -51,7 +51,7 @@
         //ajax
         $.ajax({
 
-            url: `/posts`,
+            url: `/admin/posts`,
             type: "POST",
             cache: false,
             data: {
