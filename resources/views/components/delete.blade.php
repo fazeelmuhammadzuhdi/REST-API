@@ -20,7 +20,7 @@
                 //fetch to delete data
                 $.ajax({
 
-                    url: `/posts/${post_id}`,
+                    url: `/admin/posts/${post_id}`,
                     type: "DELETE",
                     cache: false,
                     data: {
