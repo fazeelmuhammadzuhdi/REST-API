@@ -20,6 +20,11 @@
         <li class="nav-item {{ Route::is('posts.index') ? 'active' : '' }}"><a class="nav-link"
                 href="{{ route('posts.index') }}"><i class="far fa-square"></i>
                 <span>Post</span></a></li>
+
+        <li class="nav-item {{ Route::is('posts.index') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('indoregion') }}"><i class="far fa-square"></i>
+                <span>Indo Region</span></a></li>
+
         <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Bootstrap</span></a>

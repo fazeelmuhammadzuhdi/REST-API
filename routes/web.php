@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
@@ -34,4 +35,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('posts', PostController::class);
     Route::resource('karyawan', KaryawanController::class);
+    Route::get('indoregion', [IndoRegionController::class, 'index'])->name('indoregion');
+    Route::post('/getkabupaten', [IndoRegionController::class, 'getkabupaten'])->name('getkabupaten');
+    Route::post('/getkecamatan', [IndoRegionController::class, 'getkecamatan'])->name('getkecamatan');
+    Route::post('/getdesa', [IndoRegionController::class, 'getdesa'])->name('getdesa');
 });
