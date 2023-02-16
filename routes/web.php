@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,4 +41,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/getkabupaten', [IndoRegionController::class, 'getkabupaten'])->name('getkabupaten');
     Route::post('/getkecamatan', [IndoRegionController::class, 'getkecamatan'])->name('getkecamatan');
     Route::post('/getdesa', [IndoRegionController::class, 'getdesa'])->name('getdesa');
+
+    //
+    Route::get('class-index', [ClassController::class, 'index'])->name('class.index');
+    Route::post('class-store', [ClassController::class, 'store'])->name('class.store');
+    Route::post('class-edit', [ClassController::class, 'edit'])->name('class.edit');
+    Route::post('class-update', [ClassController::class, 'update'])->name('class.update');
+    Route::post('class-hapus', [ClassController::class, 'destroy'])->name('class.hapus');
+
+    Route::resource('students', StudentController::class);
 });

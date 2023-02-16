@@ -21,11 +21,15 @@
                 href="{{ route('posts.index') }}"><i class="far fa-square"></i>
                 <span>Post</span></a></li>
 
-        <li class="nav-item {{ Route::is('posts.index') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('indoregion') }}"><i class="far fa-square"></i>
+        <li class="nav-item {{ Route::is('indoregion') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('indoregion') }}"><i class="far fa-flag"></i>
                 <span>Indo Region</span></a></li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item {{ Route::is('class.index') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('class.index') }}"><i class="fas fa-broom"></i>
+                <span>Kelas</span></a></li>
+
+        {{-- <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Bootstrap</span></a>
             <ul class="dropdown-menu">
@@ -75,8 +79,8 @@
                 <li><a class="nav-link beep beep-sidebar" href="components-wizard.html">Wizard</a>
                 </li>
             </ul>
-        </li>
-        <li class="nav-item dropdown">
+        </li> --}}
+        {{-- <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                 <span>Forms</span></a>
             <ul class="dropdown-menu">
@@ -116,7 +120,7 @@
                 <li><a class="nav-link" href="modules-vector-map.html">Vector Map</a></li>
                 <li><a class="nav-link" href="modules-weather-icon.html">Weather Icon</a></li>
             </ul>
-        </li>
+        </li> --}}
         <li class="menu-header">Pages</li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i>
