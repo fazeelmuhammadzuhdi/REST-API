@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="tabel-data">
                         <thead>
                             <tr>
                                 <th width="1%">No</th>
@@ -115,6 +115,12 @@
                     )
                 }
             })
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tabel-data').DataTable();
         });
     </script>
 

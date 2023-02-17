@@ -15,7 +15,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
 
-                console.log('test');
+                // console.log('test');
 
                 //fetch to delete data
                 $.ajax({

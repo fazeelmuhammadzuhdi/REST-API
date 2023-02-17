@@ -56,7 +56,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="nis">No NIS Siswa</label>
-                                    <input type="text" name="nis"
+                                    <input type="number" name="nis"
                                         class="form-control @error('nis') is-invalid @enderror" id="nis"
                                         placeholder="Inputkan No NISN" autocomplete="off" autofocus
                                         value="{{ old('nis') }}">

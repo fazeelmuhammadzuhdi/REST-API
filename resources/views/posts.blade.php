@@ -19,7 +19,7 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Content</th>
-                                <th>Aksi</th>
+                                <th width="25%">Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="table-posts">
