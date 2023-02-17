@@ -1,4 +1,4 @@
  <div class="footer-left">
-     Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad
-         Nauval Azhar</a>
+     Copyright &copy; 2023 <div class="bullet"></div> By <a href="https://github.com/fazeelmuhammadzuhdi">Fazeel
+         Muhammad Zuhdi</a>
  </div>

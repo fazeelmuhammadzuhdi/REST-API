@@ -29,6 +29,10 @@
                 href="{{ route('class.index') }}"><i class="fas fa-broom"></i>
                 <span>Kelas</span></a></li>
 
+        <li class="nav-item {{ Route::is('students.index') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('students.index') }}"><i class="fas fa-user"></i>
+                <span>Siswa</span></a></li>
+
         {{-- <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Bootstrap</span></a>

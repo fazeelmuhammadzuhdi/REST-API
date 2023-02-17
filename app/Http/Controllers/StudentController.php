@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentStoreRequest;
+use App\Models\ClassRoom;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -13,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::with(['class'])->latest()->get();
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -23,7 +27,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $class = ClassRoom::all();
+        return view('student.create', compact('class'));
     }
 
     /**
@@ -32,9 +37,13 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentStoreRequest $request)
     {
-        //
+        // dd($request->all());
+        $data = $request->validated();
+        Student::create($data);
+
+        return to_route('students.index')->with('success', 'Data Berhasil Di Simpan');
     }
 
     /**
@@ -56,7 +65,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $students = Student::findOrFail($id);
+        $class = ClassRoom::all();
+        return view('student.edit', compact('students', 'class'));
     }
 
     /**
@@ -68,7 +79,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        // dd($data);
+        $item = Student::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect(route('students.index'))->with('success', 'Data Berhasil Di Update');
     }
 
     /**
@@ -79,6 +96,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Student::findOrFail($id)->delete();
+
+        return back();
     }
 }
