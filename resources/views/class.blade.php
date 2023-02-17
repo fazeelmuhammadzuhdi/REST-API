@@ -25,6 +25,7 @@
                             <tr>
                                 <th width="1%">No</th>
                                 <th>Kelas</th>
+                                <th>Nama Siswa</th>
                                 <th width="20%">Aksi</th>
                             </tr>
                         </thead>
@@ -80,6 +81,12 @@
                         data: 'name',
                         name: 'name'
                     },
+                    {
+                        data: 'students',
+                        name: 'students.name'
+                    },
+
+
                     {
                         data: 'aksi',
                         name: 'aksi',

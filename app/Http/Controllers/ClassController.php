@@ -14,16 +14,26 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $data = ClassRoom::all();
+        $data = ClassRoom::with('students')->get();
         if (request()->ajax()) {
             return datatables()->of($data)
+                ->addColumn(
+                    'students',
+                    function ($data) {
+                        return $data->students->map(function ($student) {
+                            return $student->name;
+                        })->implode(", ");
+                    }
+                )
                 ->addColumn('aksi', function ($data) {
                     $button = '<button class="edit btn btn-sm btn-warning" id="' . $data->id . '" name="edit">Edit</button> ';
                     $button .= ' <button class="hapus btn btn-sm btn-danger" id="' . $data->id . '" name="hapus">Hapus</button> ';
+                    // return $data->students->pluck('name')->implode(', ');
                     return $button;
                 })
                 ->rawColumns(['aksi'])
-                ->make(true);;
+                ->addIndexColumn()
+                ->make(true);
         }
         return view('class');
     }
