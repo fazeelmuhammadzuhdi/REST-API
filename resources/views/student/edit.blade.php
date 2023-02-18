@@ -91,6 +91,21 @@
                                     @enderror
 
                                 </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="extracurricular_id">Extracurricular</label>
+                                    <select name="extracurricular_id[]" id="extracurricular_id[]" multiple="multiple"
+                                        class="form-control extracurricular @error('extracurricular_id') is-invalid @enderror">
+                                        @foreach ($eksul as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('extracurricular_id')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
 
                             <button type="submit" class="btn btn-info"><i class="fas fa-save"></i>
@@ -102,4 +117,27 @@
 
         </div>
     </section>
+@endsection
+
+@php
+    $extracurricular_id = [];
+@endphp
+
+@foreach ($students->extracurriculars as $student)
+    @php
+        array_push($extracurricular_id, $student->id);
+    @endphp
+@endforeach
+
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('.extracurricular').select2();
+            data = [];
+            data = <?php echo json_encode($extracurricular_id); ?>;
+            $('.extracurricular').val(data).trigger('change');
+            // $('.extracurricular').trigger('change')
+        });
+    </script>
 @endsection

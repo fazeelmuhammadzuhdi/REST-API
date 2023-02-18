@@ -17,6 +17,7 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.13.2/datatables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.css">
@@ -69,7 +70,7 @@
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="{{ asset('/') }}assets/js/stisla.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- JS Libraies -->
     <!-- Template JS File -->
     <script src="{{ asset('/') }}assets/js/scripts.js"></script>

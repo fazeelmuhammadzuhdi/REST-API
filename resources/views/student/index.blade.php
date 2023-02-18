@@ -26,6 +26,7 @@
                                 <th>Jenis Kelamin</th>
                                 <th>No Nis</th>
                                 <th>Kelas</th>
+                                <th>Extracurricular</th>
                                 <th width="23%">Aksi</th>
                             </tr>
                         </thead>
@@ -37,6 +38,11 @@
                                     <td>{{ $item->gender }}</td>
                                     <td>{{ $item->nis }}</td>
                                     <td>{{ $item->class->name }}</td>
+                                    <td>
+                                        @foreach ($item->extracurriculars as $data)
+                                            - {{ $data->name }} <br>
+                                        @endforeach
+                                    </td>
 
                                     <td>
                                         <a href="{{ route('students.edit', $item->id) }}" class="btn btn-warning"><i

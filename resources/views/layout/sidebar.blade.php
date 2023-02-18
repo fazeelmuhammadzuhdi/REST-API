@@ -33,6 +33,10 @@
                 href="{{ route('students.index') }}"><i class="fas fa-user"></i>
                 <span>Siswa</span></a></li>
 
+        <li class="nav-item {{ Route::is('extracurricular.index') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('extracurricular.index') }}"><i class="fas fa-user"></i>
+                <span>Extracurricular</span></a></li>
+
         {{-- <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Bootstrap</span></a>

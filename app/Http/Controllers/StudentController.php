@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentStoreRequest;
 use App\Models\ClassRoom;
+use App\Models\Extracurricular;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::with(['class'])->latest()->get();
+        $students = Student::with(['class', 'extracurriculars'])->latest()->get();
         return view('student.index', compact('students'));
     }
 
@@ -28,7 +29,8 @@ class StudentController extends Controller
     public function create()
     {
         $class = ClassRoom::all();
-        return view('student.create', compact('class'));
+        $eksul = Extracurricular::all();
+        return view('student.create', compact('class', 'eksul'));
     }
 
     /**
@@ -41,8 +43,11 @@ class StudentController extends Controller
     {
         // dd($request->all());
         $data = $request->validated();
-        Student::create($data);
+        // $eksul = $request->extracurricular_id;
 
+        $student = Student::create($data);
+
+        $student->extracurriculars()->attach($request->extracurricular_id);
         return to_route('students.index')->with('success', 'Data Berhasil Di Simpan');
     }
 
@@ -67,7 +72,14 @@ class StudentController extends Controller
     {
         $students = Student::findOrFail($id);
         $class = ClassRoom::all();
-        return view('student.edit', compact('students', 'class'));
+        // $study = Extracurricular::all();
+        // $studies = $study->students;
+        // dd($studies);
+        // $eksul = Extracurricular::whereNotIn('id', [$studies->extracurricular_id])->get();
+        $eksul = Extracurricular::all();
+
+
+        return view('student.edit', compact('students', 'class', 'eksul'));
     }
 
     /**
@@ -84,6 +96,8 @@ class StudentController extends Controller
         $item = Student::findOrFail($id);
 
         $item->update($data);
+        $item->extracurriculars()->sync($request->extracurricular_id);
+        $item->save();
 
         return redirect(route('students.index'))->with('success', 'Data Berhasil Di Update');
     }

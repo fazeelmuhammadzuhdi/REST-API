@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\ExtracurricularController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StudentController;
+use App\Models\Extracurricular;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +50,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('class-edit', [ClassController::class, 'edit'])->name('class.edit');
     Route::post('class-update', [ClassController::class, 'update'])->name('class.update');
     Route::post('class-hapus', [ClassController::class, 'destroy'])->name('class.hapus');
+
+    Route::get('extracurricular', [ExtracurricularController::class, 'index'])->name('extracurricular.index');
 
     Route::resource('students', StudentController::class);
 });

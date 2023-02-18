@@ -28,6 +28,7 @@ class StudentStoreRequest extends FormRequest
             'gender' => 'required',
             'nis' => 'required|unique:students,nis',
             'class_id' => 'required',
+          
         ];
     }
 }
