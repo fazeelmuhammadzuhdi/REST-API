@@ -27,6 +27,7 @@
                                 <th>No Nis</th>
                                 <th>Kelas</th>
                                 <th>Extracurricular</th>
+                                <th>Nama Guru</th>
                                 <th width="23%">Aksi</th>
                             </tr>
                         </thead>
@@ -43,7 +44,7 @@
                                             - {{ $data->name }} <br>
                                         @endforeach
                                     </td>
-
+                                    <td>{{ $item->class->teacher->name }}</td>
                                     <td>
                                         <a href="{{ route('students.edit', $item->id) }}" class="btn btn-warning"><i
                                                 class="fa fa-edit"></i> Edit</a>

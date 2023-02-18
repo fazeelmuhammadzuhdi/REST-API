@@ -17,7 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::with(['class', 'extracurriculars'])->latest()->get();
+        $students = Student::with(['class.teacher', 'extracurriculars'])->latest()->get();
         return view('student.index', compact('students'));
     }
 

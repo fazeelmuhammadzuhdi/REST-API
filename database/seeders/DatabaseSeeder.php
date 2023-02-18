@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Contact;
 use App\Models\Extracurricular;
 use App\Models\Karyawan;
+use App\Models\Teacher;
 use Database\Factories\KaryawanFactory;
 use Illuminate\Database\Seeder;
 
@@ -19,16 +20,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-        Contact::factory(10)->create();
+        // \App\Models\User::factory(10)->create();
+        // Contact::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        Karyawan::factory(10)->create();
-        Extracurricular::factory(10)->create();
+        // Karyawan::factory(10)->create();
+        // Extracurricular::factory(10)->create();
+        Teacher::factory(10)->create();
 
         // $this->call([
         //     KaryawanSeeder::class,

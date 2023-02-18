@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClassRoom;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class ClassController extends Controller
@@ -14,7 +15,9 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $data = ClassRoom::with('students')->get();
+        $data = ClassRoom::with(['students', 'teacher'])->get();
+        $guru = Teacher::all();
+
         if (request()->ajax()) {
             return datatables()->of($data)
                 ->addColumn(
@@ -22,9 +25,12 @@ class ClassController extends Controller
                     function ($data) {
                         return $data->students->map(function ($student) {
                             return $student->name;
-                        })->implode(", ");
+                        })->implode(", "); // UNTUK HAS MANY
                     }
                 )
+                ->addColumn('teacher_id', function ($data) {
+                    return $data->teacher->name;
+                })
                 ->addColumn('aksi', function ($data) {
                     $button = '<button class="edit btn btn-sm btn-warning" id="' . $data->id . '" name="edit">Edit</button> ';
                     $button .= ' <button class="hapus btn btn-sm btn-danger" id="' . $data->id . '" name="hapus">Hapus</button> ';
@@ -35,7 +41,7 @@ class ClassController extends Controller
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('class');
+        return view('class', compact('guru'));
     }
 
     /**

@@ -26,6 +26,7 @@
                                 <th width="1%">No</th>
                                 <th>Kelas</th>
                                 <th>Nama Siswa</th>
+                                <th>Nama Wali Kelas / Home Room</th>
                                 <th width="20%">Aksi</th>
                             </tr>
                         </thead>
@@ -54,6 +55,15 @@
                                 placeholder="Inputkan Kelas">
                         </div>
 
+                        <div class="form-group">
+                            <label for="teacher_id">Nama Guru</label>
+                            <select name="teacher_id" id="teacher_id" class="form-control">
+                                @foreach ($guru as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" name="batal" id="btn-tutup" class="btn btn-outline-light"
                                 data-dismiss="modal">Close</button>
@@ -85,7 +95,10 @@
                         data: 'students',
                         name: 'students.name'
                     },
-
+                    {
+                        data: 'teacher_id',
+                        name: 'teacher.name'
+                    },
 
                     {
                         data: 'aksi',
@@ -110,6 +123,7 @@
                     $('#btn-tutup').click()
                     $('#table').DataTable().ajax.reload()
                     $('#name').val('');
+                    $('#teacher_id').val('');
                     toastr.success(response.text, 'Success')
                 },
                 error: function(xhr) {
@@ -132,6 +146,7 @@
                     console.log(response);
                     $('#id').val(response.id)
                     $('#name').val(response.name)
+                    $('#teacher_id').val(response.teacher_id)
                     $('#btn-tambah').click()
                 },
                 error: function(xhr) {
